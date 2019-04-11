@@ -2,35 +2,35 @@
 
 ## Git Repository
 
-If you're creating a [Blender](https://github.com/spatie/blender) or [Spoon](https://github.com/spatie/spoon) application, first clone its main repository and remove the `.git` folder. This will be the base application for your new project.
+[Blender](https://github.com/spatie/blender) 또는 [Spoon](https://github.com/spatie/spoon) 어플리케이션을 생성하려면 먼저 메인 저장소를 복제하고 `.git` 폴더를 삭제합니다. 이것은 새 프로젝트의 기본 어플리케이션이 됩니다.
 
-Create a repository on the Spatie organization on GitHub using the [repo naming rules](https://guidelines.spatie.be/workflow/version-control#repo-naming-conventions).
+[repo naming rules](https://guidelines.spatie.be/workflow/version-control#repo-naming-conventions)를 사용하여 GitHub의 Spatie 조직에 저장소를 만듭니다.
 
-Example: `spatie/guidelines.spatie.be`
+예: `spatie/guidelines.spatie.be`
 
-Lastly, update the `.env.example` file with values relevant to the project (database name, app url, our Slack webhook url, etc.)
+마지막으로 `.env.example` 파일을 프로젝트와 관련된 값으로 수정하십시오 (데이터베이스 이름, app url, Slack webhook url 등)
 
 ## Server
 
-1. Provision a new server on Forge. Use a kebab-cased version of the domain name for the droplet (example: `guidelines-spatie-be`)
-1. Create a new site with root `/current/public`
-1. Ensure the name of the database makes sense
-1. Run our ansible scripts on the freshly provisioned server
-1. Start one or two queue workers: `default`, and if using Blender `media_queue`
-1. Update the relevant `.env` variables. Don't forget to add the necessary service API keys later.
-1. Enable backups in BackupPC for the project
-1. Update our shared `.ssh/config` file, so we can SSH to servers without specifying a username
+1. Forge에서 새 서버를 생성하십시오. droplet에 대한 케밥 케이스 버전의 도메인 이름을 사용하십시오 (예 :`guidelines-spatie-be`) `역자주: droplet은 DigitalOcean의 가상 서버입니다`)
+1. 루트로 `/current/public` 으로 새로운 사이트를 만듭니다.
+1. 데이터베이스 이름의 의미를 확인하십시오.
+1. 새로 프로비저닝 된 서버에서 실행 가능한 스크립트를 실행하십시오.
+1. 하나 또는 두 개의 큐 작업자를 시작하십시오 :`default`, 그리고 블렌더를 사용한다면 `media_queue`
+1. 관련 `.env` 변수를 업데이트하십시오. 나중에 필요한 서비스 API 키를 추가하는 것을 잊지 마십시오.
+1. 프로젝트의 백업 PC에서 백업 사용
+1. 우리의 공유 `.ssh/config` 파일을 업데이트하십시오. 그렇게 우리는 사용자 이름을 지정하지 않고 서버에 SSH 할 수 있습니다
 
 ## Services
 
-Our Blender sites use a few third party services. Here's a checklist of what needs to be set up.
+Blender 사이트는 몇 가지 서드파티 서비스를 사용합니다. 다음은 설정해야 할 사항에 대한 체크리스트입니다.
 
-Unless specified otherwise, use the website's domain name as its identifier (API key name, property name, etc.)
+별도로 명시하지 않는 한 웹 사이트의 도메인 이름을 식별자 (API 키 이름, 속성 이름 등)로 사용합니다.
 
-1. Create a new **Sendgrid** API key
-1. Create a new **Google Analytics** property
-1. Create a new **Google Tag Manager** container
-    - Create a constant containing the Universal Analytics ID
-    - Set up a tag for Google Analytics pageviews
-1. Set up **Bugsnag** for Laravel
-1. Set up **Bugsnag** for JavaScript
+1. 새로운 **Sendgrid** API 키를 만듭니다.
+1. 새로운 **Google Analytics** 속성 만들기
+1. 새로운 **Google Tag Manager** 컨테이너를 만듭니다.
+    - Universal Analytics ID가 포함 된 상수 만들기
+    - Google Analytics pageviews용 태그 설정
+1. Laravel에 **Bugsnag** 설정
+1. JavaScript 용 **Bugsnag** 설정

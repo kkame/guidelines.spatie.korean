@@ -1,8 +1,8 @@
 # Node Event Broadcasters
 
-Here's a quick guide on how to set up a node event broadcaster. We use these in applications that use socket.io.
+다음은 nodejs 이벤트 브로드 캐스터를 설정하는 방법에 대한 퀵 가이드입니다. 우리는 socket.io를 사용하는 어플리케이션에서 이를 사용합니다.
 
-The node process will be run by supervisord. First create a new supervisor program in `/etc/supervisor/conf.d/broadcaster.conf`.
+노드 프로세스는 supervisord에 의해 실행됩니다. 먼저 `/etc/supervisor/conf.d/broadcaster.conf`에 새로운 수퍼바이저 프로그램을 만듭니다.
 
 ```
 [program:broadcaster]
@@ -16,13 +16,13 @@ stdout_logfile=/var/log/broadcaster.out.log
 user=forge
 ```
 
-When the program is ready, run it with these commands:
+프로그램이 준비되면 다음 명령을 사용하여 실행하십시오.
 
 ```bash
 supervisorctl reread
 supervisorctl update
 ```
 
-You can check the status by running `sudo supervisorctl`
+`sudo supervisorctl`을 실행하여 상태를 확인할 수 있습니다.
 
-For a more detailed guide, refer to [Servers for Hackers](https://serversforhackers.com/monitoring-processes-with-supervisord).
+자세한 내용은 [Servers for Hackers](https://serversforhackers.com/monitoring-processes-with-supervisord)를 참조하십시오.
