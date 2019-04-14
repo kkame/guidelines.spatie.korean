@@ -9,13 +9,13 @@
 
 ## Preprocessing
 
-We use PostCSS with [CSSNext](http://cssnext.io), but these principles are applicable to any pre- or postprocessors out there.
+우리는 [CSSNext](http://cssnext.io)와 함께 PostCSS를 사용하지만, 이 원칙은 거기에 있는 전처리기나 후처리기에 모두 적용됩니다.
 
 ## BEVM
 
-We use a BEM-like syntax with some custom accents. The 'variation' is a concept picked up from [Chainable BEM modifiers](https://webuild.envato.com/blog/chainable-bem-modifiers/). 
+일부 커스텀 악센트가 있는 BEM과 유사한 구문을 사용합니다. 'variation'은 [Chainable BEM modifiers](https://webuild.envato.com/blog/chainable-bem-modifiers/)에서 가져온 개념입니다.
 
-We only use classes for styling, with the following ingredients:
+우리는 다음과 같은 요소로 스타일을 정의하기위한 클래스만 사용합니다.
 
 ```css
 .component                      /* Component */   
@@ -35,16 +35,16 @@ We only use classes for styling, with the following ingredients:
 .js-hook                        /* Script hook, not used for styling */
 ```
 
-### .component and .component__element
+### .component 와 .component__element
 
 ```html
 <div class="news">
 ```
 
-- A single reusable component or pattern
-- Children are separated with `__`
-- All lowercase, can contain `-` in name
-- Avoid more than 3 levels deep
+- 재사용 가능한 단일 컴포넌트 또는 패턴
+- 자식들(children)은 `__`으로 구분됩니다
+- 모두 소문자이며 이름에 `-`를 포함 할 수 있습니다
+- 3 단계 이상은 사용하지 마시요
 
 ```html
 <div class="news">
@@ -52,14 +52,14 @@ We only use classes for styling, with the following ingredients:
         <div class="news__item__publish-date">
 ```     
 
-Be descriptive with component elements. Consider `class="team__member"` instead of `class="team__item"`
+컴포넌트 엘리멘츠로 표현하세요. `class = "team__item"` 대신에 `class = "team__member"` 사용을 고려하세요.
 
 ```html
 <div class="team">
     <div class="team__member">
 ```   
 
-You can use plurals & singulars for readability. Consider `class="member"` instead of `class="members__member"`
+가독성을 위해 복수형과 단수를 사용할 수 있습니다. `class = "members__member"` 대신에 `class = "member"`사용을 고려하세요.
 
 ```html
 <div class="members">
@@ -84,10 +84,10 @@ You can use plurals & singulars for readability. Consider `class="member"` inste
 }
 ```
 
-- A modifier changes only simple properties of a component, or adds a property
-- Modifiers are **always tied** to a component, don't work on their own (make sure you never write "global" modifier selectors)
-- Multiple modifiers are possible. Each modifier is responsible for a property: `class="alert -success -rounded -large"`. If you keep using these modifiers together, consider a **variation** (see below)
-- Since modifiers have a single responsibility, the order in HTML or CSS shouldn't matter
+- modifier는 컴포넌트의 간단한 프로퍼티만 변경하거나 프로퍼티를 추가합니다
+- modifier는 **항상** 컴포넌트에 묶여 있으며, 독자적으로 작동하지 않습니다 ( "전역" modifier 셀렉터를 사용하지 마세요)
+- 다중 modifier가 가능합니다. 각 modifier는 프로퍼티를 책임집니다: `class="alert -success -rounded -large"`. 이러한 modifier를 계속 사용하는 경우 **variable**를 고려하세요 (아래 참조)
+- modifier는 하나의 책임을 지기 때문에 HTML 또는 CSS의 순서는 중요하지 않습니다.
 
 ### .component--variation
 
@@ -107,10 +107,10 @@ You can use plurals & singulars for readability. Consider `class="member"` inste
 }
 ```
 
-- A variation adds more than one properties at once to a class, and acts as a shorthand for multiple modifiers often used together
-- It's used stand-alone without the need to use the base class `button`
-- It's a logical case to use `@apply` here, so the variation can inherit the original modifiers (**under consideration**)
-- Even variations should be generic and reusable if possible: `class="team--large"` is better than `class="team--management"`
+- variation은 클래스에 한 번에 둘 이상의 속성을 추가하고 자주 함께 사용되는 다중 modifier에 대한 shorthand로 사용됩니다
+- 기본 클래스 `button`을 사용할 필요없이 단독으로 사용됩니다.
+- 여기서 `@apply`를 사용하는 것은 논리적인 경우입니다. 그래서 variation은 원래 modifier를 상속받을 수 있습니다 (**고민 중입니다**).
+- 가능한 경우 variation은 일반적이고 재사용 가능해야합니다. `class="team--large"`는 `class="team--management"`보다 낫습니다.
 
 ### .helper-property
 
@@ -121,9 +121,9 @@ You can use plurals & singulars for readability. Consider `class="member"` inste
 <div class="margin-top-s">
 ```
 
-- Reusable utility classes throughout the entire project
-- Prefixed by type (= the property that will be effected)
-- Each helper class is responsible for a well-defined set of properties. It should be clear that these are not components
+- 전체 프로젝트에서 재사용 가능한 유틸리티 클래스
+- 유형별 접두사 (= 적용 할 속성)
+- 각 헬퍼 클래스는 잘 정의 된 속성의 집합을 담당합니다. 이들은 컴포넌트가 아니라는 것을 분명히 해야합니다.
 
 ### .js-hook
 
@@ -134,16 +134,16 @@ You can use plurals & singulars for readability. Consider `class="member"` inste
      data-map-lon="1.23">
 ```
 
-- Use `js-hook` to initiate handlers like `document.getElementsByClassName('js-hook')`
-- Use `data-attributes` only for data storage or configuration storage
-- Has no effect on styling whatsoever
+-`js-hook`을 사용하여 `document.getElementsByClassName('js-hook')`와 같은 핸들러를 시작하십시오.
+- 데이터 저장 또는 설정의 저장에만 `data-attributes` 사용하십시오.
+- 스타일링에 아무런 영향을주지 않습니다.
 
 ## DOM structure 
 
-- All styling is done by classes (except for HTML that is out of our control)
-- Avoid #id's for styling
-- Make elements easily reusable, moveable in a project, or between projects
-- Avoid multiple components on 1 DOM-element. Break them up.
+- 모든 스타일은 클래스로 처리합니다. (우리가 제어 할 수없는 HTML 제외).
+- 스타일에 대해 #id 를 사용하지 않습니다.
+- 엘리멘츠를 프로젝트에서 쉽게 재사용하거나 움직일 수 있도록 만듭니다.
+- 1 개의 DOM 요소에 여러 컴포넌트를 사용하지 마십시오. 그것들을 분할하세요.
 
 ```html
 <!-- Try to avoid, news padding or margin could break the grid--> 
@@ -159,7 +159,7 @@ You can use plurals & singulars for readability. Consider `class="member"` inste
 </div>   
 ```
 
-Tags are interchangeable since styling is done by class.
+스타일은 클래스별로 이루어지기 때문에 태그는 서로 바꿔서 사용할 수 있습니다.
 
 ```html
 <!-- All the same -->
@@ -168,7 +168,7 @@ Tags are interchangeable since styling is done by class.
 <article class="article">
 ```
 
-Html tags that are out of control (eg. the output of an editor) are scoped by the component.
+제어 할 수없는 HTML 태그 (예 : editor 출력)는 컴포넌트에 의해 범위가 지정됩니다.
 
 ```html
 <div class="article">
@@ -195,7 +195,7 @@ Html tags that are out of control (eg. the output of an editor) are scoped by th
 <div class="js-hook component__element -modifier helper">
 ```
 
-Visual class grouping can be done with `… | …`:
+비주얼 클래스 그룹화는 `… | …`로 처리합니다:
 
 ```html
 <div class="js-masonry | news__item -blue -small -active | padding-top-s align-right">
@@ -203,8 +203,8 @@ Visual class grouping can be done with `… | …`:
 
 ## Code style
 
-We use [stylelint](https://github.com/stylelint/stylelint) to lint our stylesheets. 
-Configuration is done a custom `.stylelintrc` which extends `stylelint-config-standard`.
+우리는 스타일시트를 lint하기 위해 [stylelint](https://github.com/stylelint/stylelint)를 사용합니다.
+설정은 `stylelint-config-standard`을 확장한 커스텀`.stylelintrc`로 되어있습니다.
 
 ```
 {
@@ -228,7 +228,7 @@ yarn add stylelint-config-standard
 
 ### Usage
 
-Most projects have a lint script (with the `--fix` flag) available in their `package.json`.
+대부분의 프로젝트에는 `package.json`에서 사용할 수있는 린트 스크립트 (`--fix` 플래그 포함)가 있습니다.
 
 ```
 stylelint resources/assets/css/**/**.css --fix -r
@@ -290,7 +290,7 @@ stylelint resources/assets/css/**/**.css --fix -r
 
 ## File structure
 
-We typically use 5 folders and a main `app.css` file:
+일반적으로 5 개의 폴더와 메인 `app.css` 파일을 사용합니다.
 
 ```
 |-- base       : basic html elements
@@ -304,9 +304,9 @@ We typically use 5 folders and a main `app.css` file:
 
 ### app.css
 
-- We use `postcss-easy-import` for glob imports
-- Source order shouldn't matter, except for order of folders: import npm libraries, settings or utilities first
-- Import is done by glob pattern so files can be added easily
+- glob import에 `postcss-easy-import`를 사용합니다
+- 폴더 순서 만 제외하고 소스 순서는 중요하지 않습니다: import npm libraries, settings or utilities first
+- 파일을 쉽게 추가 할 수 있도록 glob 패턴으로 import합니다.
  
 ```css
 @import 'settings/**/*';
@@ -318,7 +318,7 @@ We typically use 5 folders and a main `app.css` file:
 
 ### Base folder
 
-Contains resets and sensible defaults for basic html elements. 
+기본 html 요소에 대한 재설정 및 적절한 기본값을 포함
 
 ```
 |-- universal.css
@@ -332,7 +332,7 @@ Contains resets and sensible defaults for basic html elements.
 
 ### Components folder
 
-Stand-alone reusable components with their modifiers and variations.
+modifiers and variations가 포함된 재사용 가능한 독립 컴포넌트.
 
 ```
 |-- alert.css
@@ -342,7 +342,7 @@ Stand-alone reusable components with their modifiers and variations.
 
 ### Helpers folder
 
-Stand-alone helper classes for small layout issues.
+작은 레이아웃 문제를 위한 독립되어 있는 헬퍼 클래스.
 
 ```
 |-- align.css
@@ -353,7 +353,7 @@ Stand-alone helper classes for small layout issues.
 
 ### Settings folder
 
-Settings for colors, breakpoints, typography, etc. You can start small with one `settings.css` and split them up into different files if your variables grow.
+색상, breakpoints, typography 등에 대한 설정. 변수가 커지면 하나의`settings.css`로 시작하여 다른 파일로 나눌 수 있습니다.
 
 ```
 |-- breakpoint.css
@@ -364,7 +364,8 @@ Settings for colors, breakpoints, typography, etc. You can start small with one 
 
 ### Vendor folder
 
-Imported and customized CSS from 3rd party components (this is the syntactical Wild West, you probably don't want to lint this).
+서드파티 컴포넌트에서 가져온 커스텀 CSS (이것은 와일드 웨스트(Wild West)의 문법입니다. 아마도 이것을 보완하고 싶지 않을 것입니다.)
+`역자주: 외부에서 가져온, 자기들 마음대로 작성된 css기 때문에 모아두고 손대고 싶지 않은 파일로 보입니다`
 
 ```
 |-- pikaday.css
