@@ -32,6 +32,17 @@
         <div class="article">
             {{ $contents }}
         </div>
+
+        <a class="origin-link" style="
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background: #E91E63;
+    border-radius: 5px;
+    color: white;"
+           href="{{ $originUrl }}" target="_blank">원문보기</a>
+
         <footer class="article__footer">
             <p>Spotted a typo? See something wrong? <a href="{{ $editUrl }}" target="_blank">Edit this page on GitHub</a>.</p>
         </footer>

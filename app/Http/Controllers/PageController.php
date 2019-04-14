@@ -10,10 +10,13 @@ class PageController extends Controller
     {
         abort_unless($page = app('navigation')->getPage($url), 404);
 
+        $originUrl = "https://guidelines.spatie.be/" . $url;
+
         return view('page', [
             'title' => $page->title,
             'editUrl' => $page->edit_url,
             'contents' => MarkdownConverter::convert($page->contents),
+            'originUrl' => $originUrl,
         ]);
     }
 }
