@@ -8,11 +8,15 @@
                     </a>
                 </div>
                 <h1 class="home__title">
-                    Guidelines
+                    Guidelines - 한국어
                 </h1>
             </div>
         </header>
         <section class="home__introduction">
+            <p style="color:red;">
+                이 서버는 개인이 spatie의 가이드라인을 번역한 것으로 공식문서가 아닙니다.
+                정확한 문서는 <a href="https://guidelines.spatie.be/" target="_blank">여기</a>에서 확인가능합니다
+            </p>
             <p class="-large">
                 이 사이트에는 프로젝트를 성공적으로 수행하기 위해 사용하는 일련의 지침이 포함되어 있습니다. 일관성은 유지 보수가 가능한 소프트웨어의 가장 중요한 특징 중 하나이기 때문에 우리는 워크 플로를 문서화하기로 결정했습니다.
             </p>
