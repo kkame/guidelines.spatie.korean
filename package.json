@@ -3,23 +3,29 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "css-lint": "stylelint resources/assets/css/**/*.css --fix -r",
-    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.4.0",
-    "highlight.js": "^9.1.0",
-    "laravel-mix": "^1.4.0",
-    "postcss": "^5.0.19",
-    "postcss-cssnext": "^2.9.0",
-    "postcss-easy-import": "^2.0.0",
-    "postcss-loader": "^1.2.2",
-    "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^16.0.0",
-    "turbolinks": "^5.0.0"
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2",
+    "highlight.js": "^9.15.8",
+    "laravel-mix": "^4.1.2",
+    "postcss": "^7.0.17",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^3.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "turbolinks": "^5.2.0"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.10"
   }
 }
