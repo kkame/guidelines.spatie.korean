@@ -15,7 +15,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2",
-    "highlight.js": "^9.15.8",
+    "highlight.js": "^10.4.1",
     "laravel-mix": "^4.1.2",
     "postcss": "^7.0.17",
     "postcss-cssnext": "^3.1.0",
